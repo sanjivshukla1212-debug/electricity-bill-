@@ -10,48 +10,48 @@ if input_decider ==1:
         units.append(value)
 elif input_decider == 2:
     units = list(map(int,(input("Enter the electricity bill for all months:> ").split())))
-bill=0
 
 #FUNCTION FOR BILL CALCULATION:
 
 def cal_bill(a):
     if a>=0 and a<=100:
-        bill = 3*a
+        res = 3*a
     elif a>100 and a<=300:
-        bill = ((100*3) + (5*(a-100)))
+        res = ((100*3) + (5*(a-100)))
     else:
-        bill = (((100*3) + (5*200))+(7*(a-300)))
-    if bill > 1500:
-        bill = bill + (0.10 * bill)
+        res = (((100*3) + (5*200))+(7*(a-300)))
+    if res > 1500:
+        res = res + (0.10 * res)
 
-    return bill
+    return res
 amounts=[]
 
 #CALCULATE PRICE PER UNITS
 
 for i in range(12):
-    unis = int(units[i])
-    val = cal_bill(unis)
+    current = int(units[i])
+    val = cal_bill(current)
     amounts.append(val)
 
 #CALCULATE ANNUAL BILL:
 
-sum =0
+total_bill=0
 for i in range(12):
-    sum = sum+amounts[i]
+    total_bill = total_bill+amounts[i]
 #PRINT MONTHS WISE BILL
 for i in range(12):
     print(f"{mon_arr[i]} = {amounts[i]}")
 
 #PRINT ANNUAL BILL
 
-print("ANNUAL BILL => ",sum)
+print("ANNUAL BILL => ",total_bill)
 
 #PRINT FLAGGED MONTHS
 
 print("FLAGGED MONTHS :>")
-avg_consumption = (sum/12)
+avg_consumption = (total_bill/12)
 for i in range(12):
     mon_bill = amounts[i]
     if mon_bill>(1.5*avg_consumption):
         print(mon_arr[i])
+
