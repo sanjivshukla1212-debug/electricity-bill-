@@ -6,7 +6,7 @@ input_decider = int(input(""" Select Input method
 units=[]
 if input_decider ==1:
     for i in range(12):
-        value = input(f"Enter the electricity bill for {mon_arr[i]} :> ")
+        value =int(input(f"Enter the electricity UNITS for {mon_arr[i]} :> "))
         units.append(value)
 elif input_decider == 2:
     units = list(map(int,(input("Enter the electricity bill for all months:> ").split())))
@@ -36,7 +36,7 @@ for i in range(12):
 
 #CALCULATE ANNUAL BILL:
 
-sum =0
+total_bill
 for i in range(12):
     sum = sum+amounts[i]
 #PRINT MONTHS WISE BILL
@@ -50,8 +50,9 @@ print("ANNUAL BILL => ",sum)
 #PRINT FLAGGED MONTHS
 
 print("FLAGGED MONTHS :>")
-avg_consumption = (sum/12)
+avg_units = (sum(units)/12)
 for i in range(12):
     mon_bill = amounts[i]
-    if mon_bill>(1.5*avg_consumption):
+    if units[i]>(1.5*units):
         print(mon_arr[i])
+
