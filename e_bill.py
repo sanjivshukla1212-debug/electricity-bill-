@@ -1,16 +1,9 @@
 mon_arr = ["January","February","March","April","May","June","July","August","September","October","November","December"]
-input_decider = int(input(""" Select Input method
-                          press 1 for month wise input
-                          press 2 for annual input
-                          :>"""))
 units=[]
-if input_decider ==1:
-    for i in range(12):
-        value = input(f"Enter the electricity bill for {mon_arr[i]} :> ")
-        units.append(value)
-elif input_decider == 2:
-    units = list(map(int,(input("Enter the electricity bill for all months:> ").split())))
-
+for i in range(12):
+  value = input(f"Enter the electricity bill for {mon_arr[i]} :> ")
+  units.append(value)
+  
 #FUNCTION FOR BILL CALCULATION:
 
 def cal_bill(a):
@@ -54,4 +47,5 @@ for i in range(12):
     mon_bill = amounts[i]
     if mon_bill>(1.5*avg_consumption):
         print(mon_arr[i])
+
 
